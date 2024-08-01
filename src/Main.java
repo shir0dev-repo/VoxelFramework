@@ -29,6 +29,7 @@ public class Main {
     public void run() {
         this.init();
         this.loop();
+        this.cleanUp();
     }
 
     private void init() {
@@ -75,6 +76,10 @@ public class Main {
             Input.lateUpdate();
         }
 
+    }
+
+    public void cleanUp() {
+        cubeMesh.dispose();
     }
 
     public static void main() {

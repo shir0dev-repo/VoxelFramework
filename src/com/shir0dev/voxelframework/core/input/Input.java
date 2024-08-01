@@ -11,7 +11,7 @@ public class Input {
     private static final int CENTER_X = 640;
     private static final int CENTER_Y = 360;
     private static Vector3f mouseDelta;
-    private static final Vector2f movementVector;
+    private static final Vector3f movementVector;
 
     public Input() {
     }
@@ -20,7 +20,7 @@ public class Input {
         return mouseDelta;
     }
 
-    public static Vector2f getMovementVector() {
+    public static Vector3f getMovementVector() {
         return movementVector;
     }
 
@@ -40,20 +40,28 @@ public class Input {
     }
 
     private static void checkMovement() {
-        if (Keyboard.isKeyDown(30)) {
+        if (Keyboard.isKeyDown(Keyboard.KEY_A)) {
             movementVector.x = -1.0F;
-        } else if (Keyboard.isKeyDown(32)) {
+        } else if (Keyboard.isKeyDown(Keyboard.KEY_D)) {
             movementVector.x = 1.0F;
         } else {
             movementVector.x = 0.0F;
         }
 
-        if (Keyboard.isKeyDown(31)) {
+        if (Keyboard.isKeyDown(Keyboard.KEY_Q)) {
             movementVector.y = -1.0F;
-        } else if (Keyboard.isKeyDown(17)) {
+        } else if (Keyboard.isKeyDown(Keyboard.KEY_E)) {
             movementVector.y = 1.0F;
         } else {
             movementVector.y = 0.0F;
+        }
+
+        if (Keyboard.isKeyDown(Keyboard.KEY_S)) {
+            movementVector.z = -1.0f;
+        } else if (Keyboard.isKeyDown(Keyboard.KEY_W)) {
+            movementVector.z = 1.0f;
+        } else {
+            movementVector.z = 0;
         }
 
     }
@@ -69,6 +77,6 @@ public class Input {
     static {
         Mouse.setGrabbed(true);
         mouseDelta = new Vector3f();
-        movementVector = new Vector2f(0.0F, 0.0F);
+        movementVector = new Vector3f(0, 0, 0);
     }
 }

@@ -23,7 +23,7 @@ public class Transform {
     }
 
     public @NotNull Vector3f up() {
-        localUp.set(transformationMatrix.m01, transformationMatrix.m11, transformationMatrix.m21);
+        localUp.set(transformationMatrix.m10, transformationMatrix.m11, transformationMatrix.m12);
         return localUp;
     }
 
